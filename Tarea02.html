@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda del Profesor Shiffu</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .product-card {
+            transition: transform 0.3s;
+            margin-bottom: 20px;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .product-img {
+            height: 200px;
+            object-fit: contain;
+            padding: 10px;
+        }
+        .cart-item-img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            margin-bottom: 30px;
+        }
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 0;
+            }
+            .product-img {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Tienda Online </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#productos">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#carrito">Carrito</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <span class="badge bg-primary rounded-pill me-2" id="cart-count">0</span>
+                    <i class="fas fa-shopping-cart text-white fs-4"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Hero -->
+    <header class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Bienvenido a la tienda del Profesor Shiffu</h1>
+            <p class="lead">Los mejores productos con las tres B (Bueno bonito Barato)</p>
+        </div>
+    </header>
+
+    <!-- Catálogo de productos -->
+    <section class="container mb-5" id="productos">
+        <h2 class="text-center mb-4">Nuestros Productos</h2>
+        <div class="row">
+            <!-- Producto 1 -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card product-card h-100">
+                    <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" class="card-img-top product-img" alt="Smartphone">
+                    <div class="card-body">
+                        <h5 class="card-title">SmartWatch SiseX</h5>
+                        <p class="card-text">El último smartWatch para ver la hora de programar sin parar.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fw-bold text-primary">$599.99</span>
+                            <button class="btn btn-sm btn-success add-to-cart" data-id="1" data-name="SmartWatch SiseX" data-price="599.99" data-img="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80">
+                                <i class="fas fa-cart-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Producto 2 -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card product-card h-100">
+                    <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" class="card-img-top product-img" alt="Laptop">
+                    <div class="card-body">
+                        <h5 class="card-title">Laptop Megatrom</h5>
+                        <p class="card-text">Potente laptop para ser el mejor programador.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fw-bold text-primary">$1299.99</span>
+                            <button class="btn btn-sm btn-success add-to-cart" data-id="2" data-name="Laptop Megatrom" data-price="1299.99" data-img="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80">
+                                <i class="fas fa-cart-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Producto 3 -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card product-card h-100">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" class="card-img-top product-img" alt="Audífonos">
+                    <div class="card-body">
+                        <h5 class="card-title">Audífonos Uwei</h5>
+                        <p class="card-text">Calidad de sonido excepcional con cancelación de ruido para programadores del Sise.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fw-bold text-primary">$249.99</span>
+                            <button class="btn btn-sm btn-success add-to-cart" data-id="3" data-name="Audífonos Uwei" data-price="249.99" data-img="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80">
+                                <i class="fas fa-cart-plus"></i> Agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carrito de compras -->
+    <section class="container mb-5" id="carrito">
+        <h2 class="text-center mb-4">Tu Carrito de Compras</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Subtotal</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+                    <tr id="empty-cart-message">
+                        <td colspan="6" class="text-center">Tu carrito está vacío</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" class="text-end fw-bold">Total:</td>
+                        <td colspan="2" class="fw-bold" id="cart-total">$0.00</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="text-end">
+            <button class="btn btn-danger me-2" id="clear-cart">
+                <i class="fas fa-trash"></i> Vaciar Carrito
+            </button>
+            <button class="btn btn-success" id="checkout">
+                <i class="fas fa-credit-card"></i> Finalizar Compra
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2023 Tienda Online. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS y dependencias -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome para iconos -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    
+    <!-- JavaScript para el carrito -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializar el carrito desde localStorage o como array vacío
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Función para actualizar el carrito en la UI y localStorage
+            function updateCart() {
+                const cartItemsElement = document.getElementById('cart-items');
+                const cartTotalElement = document.getElementById('cart-total');
+                const cartCountElement = document.getElementById('cart-count');
+                
+                // Limpiar el carrito en la UI
+                cartItemsElement.innerHTML = '';
+                
+                if (cart.length === 0) {
+                    // Mostrar mensaje de carrito vacío
+                    cartItemsElement.innerHTML = '<tr id="empty-cart-message"><td colspan="6" class="text-center">Tu carrito está vacío</td></tr>';
+                    cartTotalElement.textContent = '$0.00';
+                    cartCountElement.textContent = '0';
+                } else {
+                    // Calcular total y mostrar items
+                    let total = 0;
+                    
+                    cart.forEach((item, index) => {
+                        const subtotal = item.price * item.quantity;
+                        total += subtotal;
+                        
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td><img src="${item.img}" class="cart-item-img" alt="${item.name}"></td>
+                            <td>${item.name}</td>
+                            <td>$${item.price.toFixed(2)}</td>
+                            <td>
+                                <input type="number" min="1" value="${item.quantity}" class="form-control form-control-sm quantity-input" data-index="${index}" style="width: 70px;">
+                            </td>
+                            <td>$${subtotal.toFixed(2)}</td>
+                            <td>
+                                <button class="btn btn-sm btn-danger remove-item" data-index="${index}">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        `;
+                        cartItemsElement.appendChild(row);
+                    });
+                    
+                    // Actualizar total y contador
+                    cartTotalElement.textContent = `$${total.toFixed(2)}`;
+                    cartCountElement.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+                }
+                
+                // Guardar carrito en localStorage
+                localStorage.setItem('cart', JSON.stringify(cart));
+            }
+            
+            // Manejar clic en botones "Agregar al carrito"
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const id = this.getAttribute('data-id');
+                    const name = this.getAttribute('data-name');
+                    const price = parseFloat(this.getAttribute('data-price'));
+                    const img = this.getAttribute('data-img');
+                    
+                    // Verificar si el producto ya está en el carrito
+                    const existingItem = cart.find(item => item.id === id);
+                    
+                    if (existingItem) {
+                        existingItem.quantity += 1;
+                    } else {
+                        cart.push({
+                            id,
+                            name,
+                            price,
+                            quantity: 1,
+                            img
+                        });
+                    }
+                    
+                    // Actualizar carrito y mostrar notificación
+                    updateCart();
+                    
+                    // Mostrar alerta de éxito
+                    const alert = document.createElement('div');
+                    alert.className = 'alert alert-success position-fixed top-0 end-0 m-3';
+                    alert.style.zIndex = '1000';
+                    alert.textContent = `${name} agregado al carrito`;
+                    document.body.appendChild(alert);
+                    
+                    // Eliminar alerta después de 3 segundos
+                    setTimeout(() => {
+                        alert.remove();
+                    }, 3000);
+                });
+            });
+            
+            // Manejar eliminación de items del carrito
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('remove-item') || e.target.parentElement.classList.contains('remove-item')) {
+                    const button = e.target.classList.contains('remove-item') ? e.target : e.target.parentElement;
+                    const index = button.getAttribute('data-index');
+                    cart.splice(index, 1);
+                    updateCart();
+                }
+            });
+            
+            // Manejar cambio de cantidad
+            document.addEventListener('change', function(e) {
+                if (e.target.classList.contains('quantity-input')) {
+                    const index = e.target.getAttribute('data-index');
+                    const newQuantity = parseInt(e.target.value);
+                    
+                    if (newQuantity > 0) {
+                        cart[index].quantity = newQuantity;
+                        updateCart();
+                    } else {
+                        e.target.value = cart[index].quantity; // Revertir si es 0 o negativo
+                    }
+                }
+            });
+            
+            // Vaciar carrito
+            document.getElementById('clear-cart').addEventListener('click', function() {
+                if (cart.length > 0 && confirm('¿Estás seguro de que quieres vaciar el carrito?')) {
+                    cart = [];
+                    updateCart();
+                }
+            });
+            
+            // Finalizar compra
+            document.getElementById('checkout').addEventListener('click', function() {
+                if (cart.length === 0) {
+                    alert('Tu carrito está vacío');
+                } else {
+                    alert(`Compra realizada por un total de $${document.getElementById('cart-total').textContent.substring(1)}\n¡Gracias por tu compra!`);
+                    cart = [];
+                    updateCart();
+                }
+            });
+            
+            // Inicializar el carrito al cargar la página
+            updateCart();
+        });
+    </script>
+</body>
+</html>
